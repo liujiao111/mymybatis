@@ -1,0 +1,25 @@
+<mapper namespace="com.liu.mapper.UserMapper">
+
+    <select id="selectOne" paramterType="com.liu.pojo.User"
+    resultType="com.liu.pojo.User">
+        select * from user where id=#{id} and username=#{username}
+    </select>
+
+    <select id="selectList" paramterType="com.liu.pojo.User"
+            resultType="com.liu.pojo.User">
+        select * from user
+    </select>
+
+    <insert id="insert" paramterType="com.liu.pojo.User" resultType="java.lang.Integer">
+        insert into user(id, username,password, birthday) values(#{id},#{username},#{password}, #{birthday})
+    </insert>
+
+    <update id="update" paramterType="com.liu.pojo.User" resultType="java.lang.Integer">
+        update user set username=#{username},password=#{password},birthday=#{birthday} where id=#{id}
+    </update>
+
+    <delete id="delete" paramterType="java.lang.Integer" resultType="java.lang.Integer">
+        delete from user where id=#{id}
+    </delete>
+
+</mapper>
